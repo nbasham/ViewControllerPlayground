@@ -1,7 +1,7 @@
  
 ## Playground View Controllers
  
- Add the `Playground.swift` file to the `Sources` folder in your playground to **easily** produce live views for any iPhone or iPad device. Live views show your playground's UI update as you modify your playground, as well as being interactive. For example, you can create an iPhone 7 Plus landscape view controller with a navigation bar that contains touchable bar button items.
+ Add the `Playground.swift` file to the `Sources` folder in your playground to **easily** create UIViewControllers for any iPhone or iPad. They assigned to the playground's live view show you can see and interact with your UI. For example, you can create an iPhone 7 Plus view controller in landscape with a navigation bar that contains touchable bar button items.
  
 ![Example Navigation View Controller](https://cloud.githubusercontent.com/assets/2135673/23046044/45359566-f45c-11e6-895b-928cf14d541d.png)
  
