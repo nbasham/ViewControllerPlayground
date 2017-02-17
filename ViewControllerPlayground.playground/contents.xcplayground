@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered'/>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='Simple View Controller'/>
+        <page name='Bar Button Navigation Controller'/>
+        <page name='Everything Navigation Controller copy'/>
+        <page name='Landscape View Controller'/>
+        <page name='Navigation Controller'/>
+        <page name='Under Navigation Controller'/>
+    </pages>
+</playground>

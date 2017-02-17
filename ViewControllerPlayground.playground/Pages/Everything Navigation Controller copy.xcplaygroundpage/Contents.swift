@@ -5,7 +5,7 @@ class MyViewController: UIViewController {
         print("bar button tapped")
     }
 }
-let vc = MyViewController(screenType: .phone3_5Inch, isPortrait: false, barVisibility: .withNavigationController)
+let vc = MyViewController(screenType: .phone3_5Inch, isPortrait: false, barVisibility: .withNavigationController(isUnderTopBar: false))
 let image = #imageLiteral(resourceName: "sm.jpg")
 let imageView = UIImageView(image: image)
 imageView.frame = CGRect(x: 10, y: 5, width: 460, height: 266)

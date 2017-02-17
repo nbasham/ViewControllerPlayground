@@ -35,7 +35,7 @@ lvc.view.backgroundColor = .yellow
  
  Add a navigation controller to a view controller using:
  */
-let nc = UIViewController(screenType: .phone3_5Inch, barVisibility: .withNavigationController)
+let nc = UIViewController(screenType: .phone3_5Inch, barVisibility: .withNavigationController(isUnderTopBar: false))
 let image = #imageLiteral(resourceName: "sm.jpg")
 let imageView = UIImageView(image: image)
 imageView.center = nc.view.center
@@ -45,7 +45,7 @@ nc.view.addSubview(imageView)
  */
 let image1 = #imageLiteral(resourceName: "sm.jpg")
 let imageView1 = UIImageView(image: image1)
-let unc = UIViewController(screenType: .phone3_5Inch,barVisibility: .underNavigationController)
+let unc = UIViewController(screenType: .phone3_5Inch,barVisibility: .withNavigationController(isUnderTopBar: true))
 imageView1.center = unc.view.center
 unc.view.addSubview(imageView1)
 unc.title = "Image Under Top Bar"
@@ -59,7 +59,7 @@ class MyViewController: UIViewController {
         print("bar button tapped")
     }
 }
-let myvc = MyViewController(screenType: .phone3_5Inch, isPortrait: false, barVisibility: .withNavigationController)
+let myvc = MyViewController(screenType: .phone3_5Inch, isPortrait: false, barVisibility: .withNavigationController(isUnderTopBar: false))
 myvc.title = "Thank you vets!"
 myvc.view.backgroundColor = .lightGray
 let barButton = UIBarButtonItem(barButtonSystemItem: .camera, target: myvc, action: #selector(myvc.tapped(sender:)))

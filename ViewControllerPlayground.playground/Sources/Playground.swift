@@ -1,9 +1,17 @@
+//
+//  Created by Norman Basham on 2/16/17.
+//  Copyright © 2017 Black Labs. All rights reserved.
+//  Licensed under the Apache License, Version 2.0 (the "License")
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
 import UIKit
 import PlaygroundSupport
 
 public enum BarVisibility {
-    case viewControllerOnly, withNavigationController, underNavigationController
+    case viewControllerOnly
+    case withNavigationController(isUnderTopBar: Bool)
 }
+
 public enum ScreenType : String {
     case phone3_5Inch = "iPhone 3.5 inch screen"
     case phone4Inch = "iPhone 4 inch screen"
@@ -36,12 +44,14 @@ public enum ScreenType : String {
         }
         return wh
     }
+    
     public func rect(isPortrait: Bool = true) -> CGRect {
         return CGRect(origin: .zero, size: self.size(isPortrait: isPortrait))
     }
 }
 
 extension UIViewController {
+    
     public convenience init(screenType: ScreenType, isPortrait: Bool = true, barVisibility: BarVisibility = .viewControllerOnly) {
         self.init(nibName: nil, bundle: nil)
 
@@ -50,79 +60,17 @@ extension UIViewController {
         self.view.frame = rect
         view.backgroundColor = .white
         let w = UIWindow(frame: rect)
-        
-        if barVisibility == .viewControllerOnly {
+        switch barVisibility {
+        case .viewControllerOnly:
             w.rootViewController = self
             preferredContentSize = size
             PlaygroundPage.current.liveView = self.view
-        } else {
+        case .withNavigationController(let isUnderTopBar):
             let nc = UINavigationController(rootViewController: self)
             nc.view.frame = rect
             w.rootViewController = nc
-            if barVisibility != .underNavigationController { edgesForExtendedLayout = [] }
+            if !isUnderTopBar { edgesForExtendedLayout = [] }
             PlaygroundPage.current.liveView = nc.view
         }
     }
 }
-
-//open class PlaygroundNavigationViewController: UIViewController {
-//    public let screenType: ScreenType
-////    public init(screenType: ScreenType, isPortrait: Bool = true, underNavbar: Bool = false) {
-////        self.screenType = screenType
-////        let size = screenType.size(isPortrait: isPortrait)
-////        let w = UIWindow(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-////        super.init(nibName: nil, bundle: nil)
-////        preferredContentSize = size
-////        let nc = UINavigationController(rootViewController: self)
-////        nc.view.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-////        w.rootViewController = nc
-////        if !underNavbar {
-////            edgesForExtendedLayout = []
-////        }
-////        view.backgroundColor = .white
-////        PlaygroundPage.current.liveView = nc.view
-////    }
-//    
-//    required public init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-//}
-//
-//open class PlaygroundViewController: UIViewController {
-//    public init(screenType: ScreenType, isPortrait: Bool = true) {
-//        let size = screenType.size(isPortrait: isPortrait)
-//        super.init(nibName: nil, bundle: nil)
-//        view.backgroundColor = .white
-//        let w = UIWindow(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-//        w.rootViewController = self
-//        PlaygroundPage.current.liveView = self
-//    }
-//    
-//    required public init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-//}
-//
-//public class Playground {
-//    
-//    public static func NC(screenType: ScreenType, isPortrait: Bool = true, underNavbar: Bool = false) -> (navigationController: UINavigationController, viewController: UIViewController) {
-//        let size = screenType.size(isPortrait: isPortrait)
-//        let w = UIWindow(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-//        let vc = UIViewController.init(nibName: nil, bundle: nil)
-//        let nc = UINavigationController(rootViewController: vc)
-//        nc.view.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-//        w.rootViewController = nc
-//        if !underNavbar {
-//            vc.edgesForExtendedLayout = []
-//        }
-//        vc.view.backgroundColor = .white
-//        PlaygroundPage.current.liveView = nc.view
-//        return (navigationController: nc, viewController: vc)
-//    }
-//
-//    public static func VC(screenType: ScreenType, isPortrait: Bool = true) -> UIViewController {
-//        let size = screenType.size(isPortrait: isPortrait)
-//        let w = UIWindow(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-//        let vc = UIViewController.init(nibName: nil, bundle: nil)
-//        vc.view.backgroundColor = .white
-//        w.rootViewController = vc
-//        PlaygroundPage.current.liveView = vc
-//        return vc
-//    }
-//}

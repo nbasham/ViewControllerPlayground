@@ -41,7 +41,7 @@ let vc = UIViewController(screenType: .phone3_5Inch, isPortrait: false)
  
 ```swift
 
-let vc = UIViewController(screenType: .phone3_5Inch, barVisibility: .withNavigationController)
+let vc = UIViewController(screenType: .phone3_5Inch, barVisibility: .withNavigationController(isUnderTopBar: false))
 vc.title = "iPhone Playground View Controller"
 
 ```
@@ -52,7 +52,7 @@ vc.title = "iPhone Playground View Controller"
 ```swift
 
 let imageView = UIImageView(image: UIImage(named: "objio")
-let vc = UIViewController(screenType: .phone3_5Inch,barVisibility: .underNavigationController)
+let vc = UIViewController(screenType: .phone3_5Inch,barVisibility: .withNavigationController(isUnderTopBar: true))
 imageView.center = vc.view.center
 vc.view.addSubview(imageView)
 vc.title = "Image Under Top Bar"
@@ -72,7 +72,7 @@ class MyViewController: UIViewController {
         print("bar button tapped")
     }
 }
-let vc = MyViewController(screenType: .phone3_5Inch, isPortrait: false, barVisibility: .withNavigationController)
+let vc = MyViewController(screenType: .phone3_5Inch, isPortrait: false, barVisibility: .withNavigationController(isUnderTopBar: false))
 vc.title = "Thank you vets!"
 let barButton = UIBarButtonItem(barButtonSystemItem: .camera, target: vc, action: #selector(vc.tapped(sender:)))
 vc.navigationItem.rightBarButtonItem = barButton
