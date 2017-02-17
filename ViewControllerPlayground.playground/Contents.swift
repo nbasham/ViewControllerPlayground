@@ -7,29 +7,29 @@
  
  Choose from iPhone 3.5", 4", 4.7", 5.5", iPad, iPad Pro, or TV screen.
  
-     let vc = UIViewController(screenType: .phone3_5Inch)
+ let vc = UIViewController(screenType: .phone3_5)
  
  **Orientation**
  
  Support for landscape and portrait (default).
  
-     let vc = UIViewController(screenType: .phone5_5Inch, isPortrait: false)
+ let vc = UIViewController(screenType: .phone5_5, isPortrait: false)
  
  **Navigation Controller**
  
  The `UIViewController` can be contained in a `UINavigationController`.
  
-     let vc = UIViewController(screenType: .phone3_5Inch, barVisibility: .withNavigationController(isUnderTopBar: false))
+ let vc = UIViewController(screenType: .phone3_5, barVisibility: .withNavigation(isUnderTopBar: false))
  
  To layout the UIViewController under the top bar change the `isUnderTopBar` parameter to `true`:
  
-     let vc = UIViewController(screenType: .phone3_5Inch, barVisibility: .withNavigationController(isUnderTopBar: true))
-
+ let vc = UIViewController(screenType: .phone3_5, barVisibility: .withNavigation(isUnderTopBar: true))
+ 
  
  ## Putting It All Together
  
- Here's a complete example, the view controller is a live view so you can see changes as you modify the code. In this example UIViewController is subclassed by MyViewController to handle bar button touch events.
-*/
+ Here's a complete example, the view controller is a live view so you can see changes as you modify the code. In this example a 3.5" iPhone UIViewController is subclassed by MyViewController to handle bar button touch events.
+ */
 import UIKit
 
 class MyViewController: UIViewController {
@@ -38,7 +38,7 @@ class MyViewController: UIViewController {
     }
 }
 
-let vc = MyViewController(screenType: .phone3_5Inch, isPortrait: false, barVisibility: .withNavigationController(isUnderTopBar: false))
+let vc = MyViewController(screenType: .phone3_5, isPortrait: false, barVisibility: .withNavigation(isUnderTopBar: false))
 
 let image = #imageLiteral(resourceName: "sm.jpg")
 let imageView = UIImageView(image: image)

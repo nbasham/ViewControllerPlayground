@@ -3,32 +3,32 @@ import PlaygroundSupport
 
 public enum BarVisibility {
     case viewControllerOnly
-    case withNavigationController(isUnderTopBar: Bool)
+    case withNavigation(isUnderTopBar: Bool)
 }
 
 public enum ScreenType : String {
-    case phone3_5Inch = "iPhone 3.5 inch screen"
-    case phone4Inch = "iPhone 4 inch screen"
-    case phone4_7Inch = "iPhone 4.7 inch screen"
-    case phone5_5Inch = "iPhone 5.5 inch screen"
+    case phone3_5 = "iPhone 3.5 inch screen"
+    case phone4 = "iPhone 4 inch screen"
+    case phone4_7 = "iPhone 4.7 inch screen"
+    case phone5_5 = "iPhone 5.5 inch screen"
     case pad = "iPad screen"
-    case pad_12_9Inch = "iPad Pro screen"
+    case pad_12_9 = "iPad Pro screen"
     case tv = "TV screen"
     
     public func size(isPortrait: Bool = true) -> CGSize {
         var wh: CGSize
         switch self {
-        case .phone3_5Inch:
+        case .phone3_5:
             wh = CGSize(width: 320, height: 480)
-            case .phone4Inch:
+            case .phone4:
                 wh = CGSize(width: 320, height: 568)
-            case .phone4_7Inch:
+            case .phone4_7:
                 wh = CGSize(width: 375, height: 667)
-            case .phone5_5Inch:
+            case .phone5_5:
                 wh = CGSize(width: 414, height: 736)
             case .pad:
                 wh = CGSize(width: 768, height: 1024)
-            case .pad_12_9Inch:
+            case .pad_12_9:
                 wh = CGSize(width: 1024, height: 1366)
             case .tv:
                 wh = CGSize(width: 1980, height: 1020)
@@ -59,7 +59,7 @@ extension UIViewController {
             w.rootViewController = self
             preferredContentSize = size
             PlaygroundPage.current.liveView = self.view
-        case .withNavigationController(let isUnderTopBar):
+        case .withNavigation(let isUnderTopBar):
             let nc = UINavigationController(rootViewController: self)
             nc.view.frame = rect
             w.rootViewController = nc

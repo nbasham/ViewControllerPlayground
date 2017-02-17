@@ -9,7 +9,7 @@
  
 Current device aspect ratios:
  
- - iPhone 3.5 inch scree
+ - iPhone 3.5 inch screen
  - iPhone 4 inch screen
  - iPhone 4.7 inch screen
  - iPhone 5.5 inch screen
@@ -19,7 +19,7 @@ Current device aspect ratios:
  
 ```swift
 
-let vc = UIViewController(screenType: .phone3_5Inch)
+let vc = UIViewController(screenType: .phone3_5)
 
 ```
 
@@ -30,7 +30,7 @@ Defaults to portrait, specify landscape as follows:
  
 ```swift
 
-let vc = UIViewController(screenType: .phone3_5Inch, isPortrait: false)
+let vc = UIViewController(screenType: .phone3_5, isPortrait: false)
 
 ```
 
@@ -41,7 +41,7 @@ let vc = UIViewController(screenType: .phone3_5Inch, isPortrait: false)
  
 ```swift
 
-let vc = UIViewController(screenType: .phone3_5Inch, barVisibility: .withNavigationController(isUnderTopBar: false))
+let vc = UIViewController(screenType: .phone3_5, barVisibility: .withNavigation(isUnderTopBar: false))
 vc.title = "iPhone Playground View Controller"
 
 ```
@@ -52,7 +52,7 @@ vc.title = "iPhone Playground View Controller"
 ```swift
 
 let imageView = UIImageView(image: UIImage(named: "objio")
-let vc = UIViewController(screenType: .phone3_5Inch,barVisibility: .withNavigationController(isUnderTopBar: true))
+let vc = UIViewController(screenType: .phone3_5,barVisibility: .withNavigation(isUnderTopBar: true))
 imageView.center = vc.view.center
 vc.view.addSubview(imageView)
 vc.title = "Image Under Top Bar"
@@ -61,9 +61,9 @@ vc.title = "Image Under Top Bar"
 
 
 
-#### Events
+#### Example
  
- Add a bar button and capture it's event.
+ Create `MyViewController` subclass to handle a navigation bar button's touch event.
  
 ```swift
 
@@ -72,7 +72,7 @@ class MyViewController: UIViewController {
         print("bar button tapped")
     }
 }
-let vc = MyViewController(screenType: .phone3_5Inch, isPortrait: false, barVisibility: .withNavigationController(isUnderTopBar: false))
+let vc = MyViewController(screenType: .phone3_5, isPortrait: false, barVisibility: .withNavigation(isUnderTopBar: false))
 vc.title = "Thank you vets!"
 let barButton = UIBarButtonItem(barButtonSystemItem: .camera, target: vc, action: #selector(vc.tapped(sender:)))
 vc.navigationItem.rightBarButtonItem = barButton
