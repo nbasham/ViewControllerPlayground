@@ -1,9 +1,3 @@
-//
-//  Created by Norman Basham on 2/16/17.
-//  Copyright © 2017 Black Labs. All rights reserved.
-//  Licensed under the Apache License, Version 2.0 (the "License")
-//  http://www.apache.org/licenses/LICENSE-2.0
-//
 import UIKit
 import PlaygroundSupport
 
