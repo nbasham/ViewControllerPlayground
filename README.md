@@ -7,15 +7,7 @@
  
 #### Sizes
  
-Current device aspect ratios:
- 
- - iPhone 3.5 inch screen
- - iPhone 4 inch screen
- - iPhone 4.7 inch screen
- - iPhone 5.5 inch screen
- - iPad screen
- - iPad Pro screen
- - tv
+Choose from iPhone 3.5", 4", 4.7", 5.5", iPad, iPad Pro, or TV screen sizes.
  
 ```swift
 
@@ -51,8 +43,8 @@ vc.title = "iPhone Playground View Controller"
  
 ```swift
 
-let imageView = UIImageView(image: UIImage(named: "objio")
-let vc = UIViewController(screenType: .phone3_5,barVisibility: .withNavigation(isUnderTopBar: true))
+let imageView = UIImageView(image: UIImage(named: "talk.objc.io")
+let vc = UIViewController(screenType: .phone3_5, barVisibility: .withNavigation(isUnderTopBar: true))
 imageView.center = vc.view.center
 vc.view.addSubview(imageView)
 vc.title = "Image Under Top Bar"

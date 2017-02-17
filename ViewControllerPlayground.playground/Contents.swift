@@ -5,25 +5,25 @@
  
  **Sizes**
  
- Choose from iPhone 3.5", 4", 4.7", 5.5", iPad, iPad Pro, or TV screen.
+ Choose from iPhone 3.5", 4", 4.7", 5.5", iPad, iPad Pro, or TV screen sizes.
  
- let vc = UIViewController(screenType: .phone3_5)
+    let vc = UIViewController(screenType: .phone3_5)
  
  **Orientation**
  
  Support for landscape and portrait (default).
  
- let vc = UIViewController(screenType: .phone5_5, isPortrait: false)
+    let vc = UIViewController(screenType: .phone5_5, isPortrait: false)
  
  **Navigation Controller**
  
- The `UIViewController` can be contained in a `UINavigationController`.
+ The `UIViewController` can be contained in a `UINavigationController` by including a `barVisibility` parameter.
  
- let vc = UIViewController(screenType: .phone3_5, barVisibility: .withNavigation(isUnderTopBar: false))
+    let vc = UIViewController(screenType: .phone3_5, barVisibility: .withNavigation(isUnderTopBar: false))
  
  To layout the UIViewController under the top bar change the `isUnderTopBar` parameter to `true`:
  
- let vc = UIViewController(screenType: .phone3_5, barVisibility: .withNavigation(isUnderTopBar: true))
+    let vc = UIViewController(screenType: .phone3_5, barVisibility: .withNavigation(isUnderTopBar: true))
  
  
  ## Putting It All Together
